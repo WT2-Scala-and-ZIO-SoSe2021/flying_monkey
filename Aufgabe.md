@@ -11,7 +11,7 @@
 
 # [Ex 1](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_1.md)
 
-- [] Task 1
+- [x] Task 1
 - [] Task 2A
 - [] Task 2B
 - [] Task 2C
