@@ -16,7 +16,7 @@ object Main extends App {
   /**
    * Sum of all elements in an integer array
    * @param arr input integer array
-   * @return sum of all integer elements
+   * @return sum of all integer elements, 0 if array is empty
    */
   def sum(arr: Array[Int]): Int = arr.fold(0) (_ + _)
 
