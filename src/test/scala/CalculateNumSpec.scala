@@ -8,22 +8,22 @@ class CalculateNumSpec extends AnyFlatSpec {
   val arrExcept: Array[Int] = Array();
 
   "max" should "return the maximum value" in {
-    assert(Main.max(arr) === 5)
+    assert(CalculateNum.max(arr) === 5)
     assertThrows[UnsupportedOperationException] {
-      Main.max(arrExcept)
+      CalculateNum.max(arrExcept)
     }
   }
 
   "min" should "return the minimum value" in {
-    assert(Main.min(arr) === 1)
+    assert(CalculateNum.min(arr) === 1)
     assertThrows[UnsupportedOperationException] {
-      Main.min(arrExcept)
+      CalculateNum.min(arrExcept)
     }
   }
 
   "sum" should "return the sum value" in {
-    assert(Main.sum(arr) === 15)
-    assert(Main.sum(arrExcept) === 0)
+    assert(CalculateNum.sum(arr) === 15)
+    assert(CalculateNum.sum(arrExcept) === 0)
   }
 }
 
