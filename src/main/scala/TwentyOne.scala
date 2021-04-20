@@ -1,4 +1,5 @@
 object TwentyOne {
+  /********** TASK 2A **********/
   /**
    * Convert string to int
    * @param s input string
@@ -36,4 +37,17 @@ object TwentyOne {
   def parseAll(arr: Array[String]): Array[Int] = {
     arr.map(i => parse(i))
   }
+
+  /********** TASK 2B **********/
+  /**
+   * Parse an int (represented card) to array of int (represented card value)
+   * @param card input int
+   * @return array of int value, 2 elements for ace, 1 for other cases
+   */
+  def values(card: Int): Array[Int] = {
+    if(card == 11) Array(1, 11)
+    else if (card >= 2 && card <= 10) Array(card)
+    else Array()
+  }
+
 }
