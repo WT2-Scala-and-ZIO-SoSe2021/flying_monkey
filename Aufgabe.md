@@ -6,7 +6,7 @@
 - [x] Create a new SBT based Scala project and add an application entry point (Main object with main method or by extending App).
 - [x] Add scalatest to build.sbt and add a made up test case.
 - [x] Make sure not to commit the .idea directory into git.
-- [] Make sure everybody within the team can run the project and tests.
+- [x] Make sure everybody within the team can run the project and tests.
 - [] Create a pull request and add me as reviewer.
 
 # Ex 1
