@@ -1,0 +1,103 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\VUTHUH~1\AppData\Local\Temp\idea.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\VUTHUH~1\AppData\Local\Temp\idea.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.4.7 (Oracle Corporation Java 1.8.0_212)
+[debug]       Load.loadUnit: plugins took 188.3217ms
+[debug]       Load.loadUnit: defsScala took 0.5675ms
+[debug] [Loading] Scanning directory C:\Users\Vu Thu Huong\.sbt\1.0\plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\.sbt\1.0\plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 42.9712 ms
+[debug]           Load.resolveProject(global-plugins) took 82.5835ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: C:\Users\Vu Thu Huong\.sbt\1.0\plugins, plugins: List(<none>))) took 174.2007ms
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\.sbt\1.0\plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 211.3535ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.4034ms
+[debug]     Load.loadUnit(file:/C:/Users/Vu%20Thu%20Huong/.sbt/1.0/plugins/, ...) took 412.5582ms
+[debug]   Load.apply: load took 970.5979ms
+[debug]   Load.apply: resolveProjects took 9.7798ms
+[debug]   Load.apply: finalTransforms took 93.7827ms
+[debug]   Load.apply: config.delegates took 12.4598ms
+[debug]   Load.apply: Def.make(settings)... took 1139.6055ms
+[debug]   Load.apply: structureIndex took 170.3442ms
+[debug]   Load.apply: mkStreams took 3.4557ms
+[info] loading global plugins from C:\Users\Vu Thu Huong\.sbt\1.0\plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 9589.8244ms
+[debug]           Load.loadUnit: plugins took 49.3015ms
+[debug]           Load.loadUnit: defsScala took 0.0054ms
+[debug] [Loading] Scanning directory C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey\project
+[debug]             Load.loadUnit: mkEval took 15.1241ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 3.1608 ms
+[info] loading settings for project flying_monkey-build from idea.sbt ...
+[debug]               Load.resolveProject(flying_monkey-build) took 20.4366ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id flying_monkey-build, base: C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey\project, plugins: List(<none>))) took 24.4492ms
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey\project, returning: (flying_monkey-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 5855.4313ms
+[debug]           Load.loadUnit: cleanEvalClasses took 7.6447ms
+[debug]         Load.loadUnit(file:/C:/Users/Vu%20Thu%20Huong/IdeaProjects/flying_monkey/project/, ...) took 5913.9913ms
+[debug]       Load.apply: load took 5916.8903ms
+[debug]       Load.apply: resolveProjects took 0.2315ms
+[debug]       Load.apply: finalTransforms took 14.0669ms
+[debug]       Load.apply: config.delegates took 0.4564ms
+[debug]       Load.apply: Def.make(settings)... took 114.5891ms
+[debug]       Load.apply: structureIndex took 43.0482ms
+[debug]       Load.apply: mkStreams took 0.0037ms
+[info] loading project definition from C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 7535.1774ms
+[debug]     Load.loadUnit: defsScala took 0.0079ms
+[debug] [Loading] Scanning directory C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey
+[debug]       Load.loadUnit: mkEval took 0.73ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin))), Clause(And(Set(Atom(sbt.plugins.CorePlugin), Atom(sbt.plugins.JvmPlugin))),Set(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 4.8975 ms
+[info] loading settings for project flying_monkey from build.sbt ...
+[debug]         Load.resolveProject(flying_monkey) took 89.6217ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id flying_monkey, base: C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey, plugins: List(<none>))) took 97.0578ms
+[debug] [Loading] Done in C:\Users\Vu Thu Huong\IdeaProjects\flying_monkey, returning: (flying_monkey)
+[debug]     Load.loadUnit: loadedProjectsRaw took 4171.3287ms
+[debug]     Load.loadUnit: cleanEvalClasses took 38.9014ms
+[debug]   Load.loadUnit(file:/C:/Users/Vu%20Thu%20Huong/IdeaProjects/flying_monkey/, ...) took 11747.451ms
+[debug] Load.apply: load took 11751.103ms
+[debug] Load.apply: resolveProjects took 0.244ms
+[debug] Load.apply: finalTransforms took 84.2514ms
+[debug] Load.apply: config.delegates took 1.2459ms
+[debug] Load.apply: Def.make(settings)... took 308.85ms
+[debug] Load.apply: structureIndex took 89.8396ms
+[debug] Load.apply: mkStreams took 0.0041ms
+[info] set current project to flying_monkey (in build file:/C:/Users/Vu%20Thu%20Huong/IdeaProjects/flying_monkey/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(; set ideaPort in Global := 50523 ; idea-shell, None, None)
+[debug] > Exec(set ideaPort in Global := 50523, None, None)
+[info] Defining Global / ideaPort
+[info] The new value will be used by Compile / compile, Test / compile
+[debug] Defining 
+[debug] 	Global / ideaPort
+[debug] 
+[debug] The new value will be used by 
+[debug] 	Compile / compile
+[debug] 	Test / compile
+[info] Reapplying settings...
+[info] set current project to flying_monkey (in build file:/C:/Users/Vu%20Thu%20Huong/IdeaProjects/flying_monkey/)
+[debug] > Exec(idea-shell, None, None)
