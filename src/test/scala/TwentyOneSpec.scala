@@ -52,4 +52,14 @@ class TwentyOneSpec extends AnyFlatSpec {
     assert(TwentyOne.determineBestHandValue(Array(11, 2, 0)) === 13)
     assert(TwentyOne.determineBestHandValue(Array(11, 10, 10)) === 21)
   }
+
+  /**
+   * Test case of optional task
+   */
+  "determineBestHandValue2" should "return best hand value" in {
+    assert(TwentyOne.determineBestHandValue2(Array(11, 11, 9)) === 21) // 11 + 1 + 9
+    assert(TwentyOne.determineBestHandValue2(Array(11, 11, 11, 8)) === 21) // 11 + 1 + 1 + 9
+    assert(TwentyOne.determineBestHandValue2(Array(10, 9, 11, 11)) === 21) // 10 + 9 + 1 + 1
+    assert(TwentyOne.determineBestHandValue2(Array(10, 9, 10, 11)) === 0) // 10 + 9 + 10 + 1 => no best value
+  }
 }

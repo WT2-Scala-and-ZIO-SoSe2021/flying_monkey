@@ -102,4 +102,23 @@ object TwentyOne {
     if (isBust(optimisticF(hand))) pessimisticF(hand)
     else optimisticF(hand)
   }
+
+  /********** OPTIONAL TASK **********/
+  /**
+   * Determine best hand value
+   * If there's more than one A, only maximum 1 A can be 11, 2 A (11) => 22 => bust
+   * If the lowest hand is okay with increasing 10 more => can change one A (1) into A (11)
+   * @param hand int array of hand values
+   * @return int sum of hand values
+   */
+  def determineBestHandValue2(hand: Array[Int]): Int = {
+    if (isBust(optimisticF(hand))) {
+      if(pessimisticF(hand) <= 11) { // can change 1 to 11
+        pessimisticF(hand) + 10
+      } else if(pessimisticF(hand) > 21) { // even the lowest hand is bust, no saving there
+        0
+      } else pessimisticF(hand)
+    }
+    else optimisticF(hand)
+  }
 }
