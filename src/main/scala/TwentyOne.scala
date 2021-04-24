@@ -113,7 +113,7 @@ object TwentyOne {
    */
   def determineBestHandValue2(hand: Array[Int]): Int = {
     if (isBust(optimisticF(hand))) {
-      if(pessimisticF(hand) <= 11) { // can change 1 to 11
+      if(pessimisticF(hand) <= 11 && hand.contains(11)) { // can change 1 to 11
         pessimisticF(hand) + 10
       } else if(pessimisticF(hand) > 21) { // even the lowest hand is bust, no saving there
         0
