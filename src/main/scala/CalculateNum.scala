@@ -4,7 +4,7 @@ object CalculateNum {
    * @param arr input integer array
    * @return maximum value of arr
    */
-  def max(arr: Array[Int]): Int = arr.reduce(_ max _)
+    def max(arr: Array[Int]): Int = arr.reduce(_ max _)
 
   /**
    * Minimum value of an integer array
