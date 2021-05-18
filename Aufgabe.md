@@ -22,8 +22,8 @@
 # [Ex 2](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_2.md)
 
 - [] Task 1
-    - [] A
-    - [] B
+    - [x] A
+    - [x] B
     - [] C
     - [] D
     
