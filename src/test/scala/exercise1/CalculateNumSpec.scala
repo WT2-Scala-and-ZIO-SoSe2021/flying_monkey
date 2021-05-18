@@ -1,5 +1,6 @@
 package exercise1
 
+import exercise1.CalculateNum
 import org.scalatest.flatspec.AnyFlatSpec
 
 class CalculateNumSpec extends AnyFlatSpec {

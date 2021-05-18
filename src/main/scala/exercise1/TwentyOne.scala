@@ -10,11 +10,12 @@ object TwentyOne {
    * @return integer, none if exception occurs
    */
   def toInt(s: String): Option[Int] = {
-    try {
+    /*try {
       Some(s.toInt)
     } catch {
       case e: Exception => None
-    }
+    }*/
+    s.toIntOption
   }
 
   /**
@@ -78,10 +79,11 @@ object TwentyOne {
    * @param handSum the total values of the hand
    * @return boolean status (bust or not)
    */
-  def isBust(handSum: Int): Boolean = {
+  /* def isBust(handSum: Int): Boolean = {
     if (handSum > 21) true
     else false
-  }
+  }*/
+  def isBust(handSum: Int) = handSum  > 21
 
   /** ******** TASK 2D ********* */
 
@@ -90,20 +92,20 @@ object TwentyOne {
    * Ex: hand = Array(11, 2, 0) -> values() -> hand = Array(Array(11,1), Array(2), Array())
    * -> max() -> (11, 2, 0) -> sum() -> 13
    *
-   * @param hand int array of hand values
    * @return int sum of hand values
    */
-  def optimisticF(hand: Array[Int]): Int = determineHandValue(CalculateNum.max)(hand)
+  // def optimisticF(hand: Array[Int]): Int = determineHandValue(CalculateNum.max)(hand)
+  def optimisticF = determineHandValue(CalculateNum.max) _
 
   /**
    * Apply strategy min
    * Ex: hand = Array(11, 2, 0) -> values() -> hand = Array(Array(11,1), Array(2), Array())
    * -> min() -> (1, 2, 0) -> sum() -> 3
    *
-   * @param hand int array of hand values
    * @return int sum of hand values
    */
-  def pessimisticF(hand: Array[Int]): Int = determineHandValue(CalculateNum.min)(hand)
+  // def pessimisticF(hand: Array[Int]): Int = determineHandValue(CalculateNum.min)(hand)
+  def pessimisticF = determineHandValue(CalculateNum.min) _
 
   /** ******** TASK 2E ********* */
 
@@ -130,13 +132,15 @@ object TwentyOne {
    * @return int sum of hand values
    */
   def determineBestHandValue2(hand: Array[Int]): Int = {
-    if (isBust(optimisticF(hand))) {
-      if (pessimisticF(hand) <= 11 && hand.contains(11)) { // can change 1 to 11
-        pessimisticF(hand) + 10
-      } else if (pessimisticF(hand) > 21) { // even the lowest hand is bust, no saving there
+    val pessimistic = pessimisticF(hand)
+    val optimistic = optimisticF(hand)
+    if (isBust(optimistic)) {
+      if (pessimistic <= 11 && hand.contains(11)) { // can change 1 to 11
+        pessimistic + 10
+      } else if (pessimistic > 21) { // even the lowest hand is bust, no saving there
         0
-      } else pessimisticF(hand)
+      } else pessimistic
     }
-    else optimisticF(hand)
+    else optimistic
   }
 }
