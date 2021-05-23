@@ -18,14 +18,15 @@ sealed trait Ior[A] {
     case Left(exception) => Ior.left(exception)
     case Right(elem) => f(elem)
 
-    // nested pattern matching because flatMap is right biased => only work on A
+    // case Both(exception, elem) => ignore left scenario exception, only touch elem
+    // => change elem into Ior type
     case Both(exception, elem) => {
       f(elem) match {
-        // f: elem_A => left => Left()
+        // elem => exception2 => return (exception, exception2) - Not Ior => return Left(exception2)
         case Left(exception2) => Left(exception2)
-        // f: elem_A => right => Both()
+        // elem => elem2 => return (exception, elem2)
         case Right(elem2) => Both(exception, elem2)
-        // f: elem_A => both => Both()
+        // elem => (exception3, elem3) => return (exception, exception3, elem3) - Not Ior => return Both(exception3, elem3)
         case Both(exception3, elem3) => Both(exception3, elem3)
       }
     }
