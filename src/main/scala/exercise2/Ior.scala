@@ -26,7 +26,7 @@ sealed trait Ior[A] {
         case Left(exception2) => Left(exception2)
         // elem => elem2 => return (exception, elem2)
         case Right(elem2) => Both(exception, elem2)
-        // elem => (exception3, elem3) => return (exception, exception3, elem3) - Not Ior => return Both(exception3, elem3)
+        // elem => (exception3, elem3) => return (exception, (exception3, elem3)) => return Both(exception3, elem3)
         case Both(exception3, elem3) => Both(exception3, elem3)
       }
     }
