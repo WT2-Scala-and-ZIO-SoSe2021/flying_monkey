@@ -27,9 +27,9 @@
     - [x] C
     - [x] D
     
-- [] Task 2
-    - [] A
-    - [] B
+- [x] Task 2
+    - [x] A
+    - [x] B
 - [] Task 3
     - [] A
     - [] B
