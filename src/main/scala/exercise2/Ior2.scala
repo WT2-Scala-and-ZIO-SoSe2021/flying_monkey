@@ -15,19 +15,19 @@ sealed trait Ior2[E <: Throwable, A] {
    * @return Ior[B]
    */
   def flatMap[E <: Throwable, B](f: A => Ior2[E, B]): Ior2[E, B] = this match {
-    case Left(exception) => Ior2.left(exception)
-    case Right(elem) => f(elem)
+    case Left2(exception) => Ior2.left(exception)
+    case Right2(elem) => f(elem)
 
-    // case Both(exception, elem) => ignore left scenario exception, only touch elem
+    // case Both2(exception, elem) => ignore left scenario exception, only touch elem
     // => change elem into Ior type
-    case Both(exception, elem) => {
+    case Both2(exception, elem) => {
       f(elem) match {
-        // elem => exception2 => return (exception, exception2) - Not Ior => return Left(exception2)
-        case Left(exception2) => Left(exception2)
+        // elem => exception2 => return (exception, exception2) - Not Ior => return Left2(exception2)
+        case Left2(exception2) => Left2(exception2)
         // elem => elem2 => return (exception, elem2)
-        case Right(elem2) => Both(exception, elem2)
-        // elem => (exception3, elem3) => return (exception, (exception3, elem3)) => return Both(exception3, elem3)
-        case Both(exception3, elem3) => Both(exception3, elem3)
+        case Right2(elem2) => Both2(exception, elem2)
+        // elem => (exception3, elem3) => return (exception, (exception3, elem3)) => return Both2(exception3, elem3)
+        case Both2(exception3, elem3) => Both2(exception3, elem3)
       }
     }
   }
@@ -41,19 +41,19 @@ sealed trait Ior2[E <: Throwable, A] {
   def map[E <: Throwable, B](f: A => B): Ior2[E, B] = flatMap(elem => Ior2.unit(f(elem)))
 }
 
-case class Left[E <: Throwable, A](exception: Throwable) extends Ior2[E, A]
-case class Right[E <: Throwable, A](elem: A) extends Ior2[E, A]
-case class Both[E <: Throwable, A](exception: Throwable, elem: A) extends Ior2[E, A]
+case class Left2[E <: Throwable, A](exception: Throwable) extends Ior2[E, A]
+case class Right2[E <: Throwable, A](elem: A) extends Ior2[E, A]
+case class Both2[E <: Throwable, A](exception: Throwable, elem: A) extends Ior2[E, A]
 
 /**
  * Companion object
  */
 object Ior2 {
-  def left[E <: Throwable, A](exception: Throwable): Left[E, A] = Left(exception)
-  def right[E <: Throwable, A](elem: A): Right[E, A] = Right(elem)
-  def both[E <: Throwable, A](exception: Throwable, elem: A): Both[E, A] = Both(exception, elem)
+  def left[E <: Throwable, A](exception: Throwable): Left2[E, A] = Left2(exception)
+  def right[E <: Throwable, A](elem: A): Right2[E, A] = Right2(elem)
+  def both[E <: Throwable, A](exception: Throwable, elem: A): Both2[E, A] = Both2(exception, elem)
 
-  // only case class Right take A
-  def unit[E <: Throwable, A](elem: A): Ior2[E, A] = Right(elem)
+  // only case class Right2 take A
+  def unit[E <: Throwable, A](elem: A): Ior2[E, A] = Right2(elem)
 }
 
