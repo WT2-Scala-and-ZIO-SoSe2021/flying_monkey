@@ -12,7 +12,7 @@ object KSA {
    * Returns a queue containing a total of frequency elements of random values between .5 and -.5 multiplied by volume.
    * Frequency must be greater than zero and volume is between 0 and 1.
    */
-  def whiteNoise(frequency: Int = 1, volume: Double = 1.0): QueueLike[Double] = {
+  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): QueueLike[Double] = {
     if(frequency <= 0 || volume < 0 || volume > 1) {
       throw new Exception("wrong input")
     }
