@@ -13,8 +13,8 @@ class StackSpec extends AnyFlatSpec {
 
   "push" should "push a new element" in {
     assert(StackEmpty().push(1) === Stack(1, StackEmpty()))
-    assert(Stack(1, StackEmpty()).push(2) === Stack(2, Stack(1, StackEmpty())))
-    // assert(emptyStack.push(1) === StackCons(1, StackEmpty()))
+    assert(stack.push(4) === Stack(4, Stack(1, Stack(2, Stack(3, StackEmpty())))))
+    // assert(emptyStack.push(1) === Stack(1, StackEmpty()))
   }
 
   "pop" should "get one element from stack" in {
