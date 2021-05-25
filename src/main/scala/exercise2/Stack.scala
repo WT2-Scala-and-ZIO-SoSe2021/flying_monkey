@@ -1,5 +1,6 @@
 package exercise2
 
+import scala.annotation.tailrec
 import scala.util.Try
 
 // FIFO
@@ -7,10 +8,7 @@ sealed trait StackLike[T] {
   def push(elem: T): StackLike[T]
 
   // Try because StackLike can be empty => return exception
-  def pop(): Try[StackLike[T]] = this match {
-    case StackCons(_, tail) => Try(tail)
-    case StackEmpty() => Try(StackEmpty())
-  }
+  def pop(): Try[StackLike[T]]
 
   def top(): Option[T]
 
@@ -25,7 +23,9 @@ sealed trait StackLike[T] {
  * @tparam T
  */
 case class StackEmpty[T]() extends StackLike[T] {
-  override def push(elem: T): StackLike[T] = StackCons(elem, this)
+  override def push(elem: T): StackLike[T] = Stack(elem, this)
+
+  override def pop(): Try[StackLike[T]]= Try(StackEmpty())
 
   override def top(): Option[T] = None
 
@@ -34,21 +34,24 @@ case class StackEmpty[T]() extends StackLike[T] {
   override def reverse(): StackLike[T] = this
 }
 
-case class StackCons[T](head: T, tail: StackLike[T]) extends StackLike[T] {
-  override def push(elem: T): StackLike[T] = StackCons(elem, this)
+case class Stack[T](head: T, tail: StackLike[T]) extends StackLike[T] {
+  override def push(elem: T): StackLike[T] = Stack(elem, this)
+
+  override def pop(): Try[StackLike[T]]= Try(tail)
 
   override def top(): Option[T] = Option(head)
 
   override def isEmpty: Boolean = false
 
   override def reverse(): StackLike[T] = {
-    val beginStack = StackCons(head, StackEmpty())
+    val beginStack = Stack(head, StackEmpty())
     this.loopReverse(tail, beginStack)
   }
 
-  private def loopReverse(tail: StackLike[T], all: StackCons[T]): StackLike[T] = tail match {
-    case StackCons(smallHead, smallTail) => {
-      val newAll = StackCons(smallHead, all)
+  @tailrec
+  private def loopReverse(tail: StackLike[T], all: Stack[T]): StackLike[T] = tail match {
+    case Stack(smallHead, smallTail) => {
+      val newAll = Stack(smallHead, all)
       this.loopReverse(smallTail, newAll)
     }
     case StackEmpty() => all

@@ -8,18 +8,18 @@ class StackSpec extends AnyFlatSpec {
   /**
    * Test case of task 2A
    */
-  val stack = StackCons(1, StackCons(2, StackCons(3, StackEmpty())))
+  val stack = Stack(1, Stack(2, Stack(3, StackEmpty())))
   val emptyStack = StackEmpty()
 
   "push" should "push a new element" in {
-    assert(StackEmpty().push(1) === StackCons(1, StackEmpty()))
-    assert(StackCons(1, StackEmpty()).push(2) === StackCons(2, StackCons(1, StackEmpty())))
+    assert(StackEmpty().push(1) === Stack(1, StackEmpty()))
+    assert(Stack(1, StackEmpty()).push(2) === Stack(2, Stack(1, StackEmpty())))
     // assert(emptyStack.push(1) === StackCons(1, StackEmpty()))
   }
 
   "pop" should "get one element from stack" in {
     assert(emptyStack.pop() === Success(StackEmpty()))
-    assert(stack.pop().get === StackCons(2, StackCons(3, StackEmpty())))
+    assert(stack.pop().get === Stack(2, Stack(3, StackEmpty())))
   }
 
   "top" should "return the first head value" in {
@@ -34,6 +34,6 @@ class StackSpec extends AnyFlatSpec {
 
   "reverse" should "reverse the whole stack" in {
     assert(emptyStack.reverse() === StackEmpty())
-    assert(stack.reverse() === StackCons(3, StackCons(2, StackCons(1, StackEmpty()))))
+    assert(stack.reverse() === Stack(3, Stack(2, Stack(1, StackEmpty()))))
   }
 }

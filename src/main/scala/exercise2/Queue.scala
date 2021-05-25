@@ -16,23 +16,23 @@ trait QueueLike[T] {
   def isEmpty: Boolean
 }
 
-case class StackQueue[T](inQueue: StackLike[T], outQueue: StackLike[T]) extends QueueLike[T] {
-  override def enqueue(elem: T): StackQueue[T] = {
-    StackQueue(this.inQueue.push(elem), this.outQueue)
+case class Queue[T](inQueue: StackLike[T], outQueue: StackLike[T]) extends QueueLike[T] {
+  override def enqueue(elem: T): Queue[T] = {
+    Queue(this.inQueue.push(elem), this.outQueue)
   }
 
   override def dequeue(): Try[QueueLike[T]] = this.outQueue match {
-    case StackCons(_, _) => {
+    case Stack(_, _) => {
       val out = this.outQueue.pop().get
-      Try(StackQueue(this.inQueue, out))
+      Try(Queue(this.inQueue, out))
     }
     case StackEmpty() => this.inQueue match {
-      case StackCons(_, _) => {
+      case Stack(_, _) => {
         val out = this.inQueue.reverse().pop().get
         val in = StackEmpty[T]()
-        Try(StackQueue(in, out))
+        Try(Queue(in, out))
       }
-      case StackEmpty() => Try(StackQueue(StackEmpty(), StackEmpty()))
+      case StackEmpty() => Try(Queue(StackEmpty(), StackEmpty()))
     }
   }
 

@@ -30,11 +30,11 @@
 - [x] Task 2
     - [x] A
     - [x] B
-- [] Task 3
-    - [] A
-    - [] B
-    - [] C
-    - [] D
-    - [] E
-- [] Optional Task
+- [x] Task 3
+    - [x] A
+    - [x] B
+    - [x] C
+    - [x] D
+    - [x] E
+- [x] Optional Task
 
