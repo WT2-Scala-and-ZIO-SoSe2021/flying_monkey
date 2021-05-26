@@ -34,6 +34,7 @@ case class StackEmpty[T]() extends StackLike[T] {
   override def reverse(): StackLike[T] = this
 }
 
+
 case class Stack[T](head: T, tail: StackLike[T]) extends StackLike[T] {
   override def push(elem: T): StackLike[T] = Stack(elem, this)
 

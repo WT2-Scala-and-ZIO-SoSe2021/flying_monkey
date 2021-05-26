@@ -8,6 +8,7 @@ class QueueSpec extends AnyFlatSpec {
   /**
    * Test case of task 2B
    */
+
   val emptyQueue = Queue(StackEmpty[Int](), StackEmpty[Int]())
   val stackQueue = Queue(Stack(1, Stack(2, StackEmpty())), StackEmpty())
   val stackQueue2 = Queue(StackEmpty(), Stack(1, Stack(2, StackEmpty())))
