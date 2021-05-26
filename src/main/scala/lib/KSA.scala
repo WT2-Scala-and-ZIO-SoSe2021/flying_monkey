@@ -20,7 +20,7 @@ object KSA {
     // Keep adding queue until it's enough
     @tailrec
     def addQueue(queue: QueueLike[Double], number: Int): QueueLike[Double] = {
-      if(number == 0) queue
+      if(number == 0) return queue
 
       val newQueue = queue.enqueue(Random.between(-0.5, 0.5) * volume)
       addQueue(newQueue, number - 1)

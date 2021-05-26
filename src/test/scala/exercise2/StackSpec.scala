@@ -9,12 +9,11 @@ class StackSpec extends AnyFlatSpec {
    * Test case of task 2A
    */
   val stack = Stack(1, Stack(2, Stack(3, StackEmpty())))
-  val emptyStack = StackEmpty()
+  val emptyStack = StackEmpty[Int]()
 
   "push" should "push a new element" in {
-    assert(StackEmpty().push(1) === Stack(1, StackEmpty()))
+    assert(emptyStack.push(1) === Stack(1, StackEmpty()))
     assert(stack.push(4) === Stack(4, Stack(1, Stack(2, Stack(3, StackEmpty())))))
-    // assert(emptyStack.push(1) === Stack(1, StackEmpty()))
   }
 
   "pop" should "get one element from stack" in {
