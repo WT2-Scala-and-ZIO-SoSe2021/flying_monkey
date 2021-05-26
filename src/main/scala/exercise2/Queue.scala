@@ -1,4 +1,4 @@
-import scala.util.Try
+package exercise2
 
 // FILO
 

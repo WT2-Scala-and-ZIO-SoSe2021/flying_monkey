@@ -1,7 +1,5 @@
 package exercise2
 
-import scala.util.Try
-
 // FIFO
 sealed trait StackLike[T] {
   def push(elem: T): StackLike[T]
