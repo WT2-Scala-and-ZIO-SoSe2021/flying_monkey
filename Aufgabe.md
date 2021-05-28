@@ -26,15 +26,14 @@
     - [x] B
     - [x] C
     - [x] D
-    
-- [] Task 2
-    - [] A
-    - [] B
-- [] Task 3
-    - [] A
-    - [] B
-    - [] C
-    - [] D
-    - [] E
-- [] Optional Task
+- [x] Task 2
+    - [x] A
+    - [x] B
+- [x] Task 3
+    - [x] A
+    - [x] B
+    - [x] C
+    - [x] D
+    - [x] E
+- [x] Optional Task
 
