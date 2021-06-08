@@ -1,32 +1,43 @@
-package lib
-import exercise2.{Queue, QueueLike, StackEmpty}
+package exercise3
 
-import scala.annotation.tailrec
-import scala.util.{Failure, Random, Success}
+import exercise2._
 
-object KSA {
-  val ENERGY_DECAY_FACTOR = 0.996
-  val r = new Random()
+import lib.KSA.ENERGY_DECAY_FACTOR
+import lib.StdAudio
+
+import zio.random._
+import zio.{UIO, URIO, ZIO}
+
+import scala.util.{Failure, Success}
+
+object ZioApp extends App {
+  def run(args: List[String]) =
+    myAppLogic.exitCode
+
+  val myAppLogic =
+    for {
+      noise <- whiteNoise()
+      _ <- loop(noise)
+    } yield ()
+
+  def play(sound: Double): UIO[Unit] = ZIO.effectTotal(StdAudio.play(sound))
 
   /**
    * Returns a queue containing a total of frequency elements of random values between .5 and -.5 multiplied by volume.
    * Frequency must be greater than zero and volume is between 0 and 1.
    */
-  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): QueueLike[Double] = {
+  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): URIO[Random, Queue[Double]] = {
     if(frequency <= 0 || volume < 0 || volume > 1) {
-      throw new Exception("wrong input")
+      ZIO.fail("wrong input")
     }
 
-    // Keep adding queue until it's enough
-    @tailrec
-    def addQueue(queue: QueueLike[Double], number: Int): QueueLike[Double] = {
-      if(number == 0) return queue
-
-      val newQueue = queue.enqueue(Random.between(-0.5, 0.5) * volume)
-      addQueue(newQueue, number - 1)
+    ZIO.foldLeft(0 to frequency)(new Queue[Double](StackEmpty(), StackEmpty())) {
+      (q, _) =>
+        for {
+          randomValue <- nextDoubleBetween(-0.5, 0.5)
+          queue <- ZIO.effectTotal(q.enqueue(randomValue * volume))
+        } yield queue
     }
-
-    addQueue(new Queue[Double](StackEmpty(), StackEmpty()), frequency)
   }
 
   /**
@@ -44,14 +55,15 @@ object KSA {
     }
   }
 
-  @tailrec
   /**
    * Takes a queue and a function f:Double => Unit, which can be used to play audio.
    * Takes the queue, passes it to update, plays the front element of the queue and calls itself indefinitely.
    */
-  def loop(queue: QueueLike[Double])(f: Double => Unit): Unit = {
+  def loop(queue: QueueLike[Double]): ZIO[Random, Throwable, Unit] = {
     val newQueue = update(queue).get
-    f(newQueue.front().get)
-    loop(newQueue)(f)
+    for {
+      _ <- play(newQueue.front.get)
+      _ <- loop(newQueue)
+    } yield ()
   }
 }

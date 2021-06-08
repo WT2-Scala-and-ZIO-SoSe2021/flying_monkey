@@ -6,5 +6,6 @@ scalaVersion := "2.13.5"
 
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.2.5" % "test",
-  "org.scalatest" %% "scalatest" % "3.2.5" % "test"
+  "org.scalatest" %% "scalatest" % "3.2.5" % "test",
+  "dev.zio" %% "zio" % "1.0.9"
 )
