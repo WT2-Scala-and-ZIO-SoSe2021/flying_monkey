@@ -5,6 +5,8 @@ import exercise2._
 import lib.KSA.ENERGY_DECAY_FACTOR
 import lib.StdAudio
 
+
+import zio.console._
 import zio.random._
 import zio.{UIO, URIO, ZIO}
 
@@ -14,10 +16,17 @@ object ZioApp extends App {
   def run(args: List[String]) =
     myAppLogic.exitCode
 
+  /*val myAppLogic2 =
+    for {
+      _    <- putStrLn("Hello! What is your name?")
+      name <- getStrLn
+      _    <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
+    } yield ()*/
+
   val myAppLogic =
     for {
-      noise <- whiteNoise()
-      _ <- loop(noise)
+      sound <- whiteNoise()
+      _ <- loop(sound)
     } yield ()
 
   def play(sound: Double): UIO[Unit] = ZIO.effectTotal(StdAudio.play(sound))
@@ -67,3 +76,4 @@ object ZioApp extends App {
     } yield ()
   }
 }
+
