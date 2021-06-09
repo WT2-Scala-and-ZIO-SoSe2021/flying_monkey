@@ -22,18 +22,35 @@
 # [Ex 2](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_2.md)
 
 - [x] Task 1
-    - [x] A
-    - [x] B
-    - [x] C
-    - [x] D
+  - [x] A
+  - [x] B
+  - [x] C
+  - [x] D
+
 - [x] Task 2
-    - [x] A
-    - [x] B
+  - [x] A
+  - [x] B
 - [x] Task 3
-    - [x] A
-    - [x] B
-    - [x] C
-    - [x] D
-    - [x] E
+  - [x] A
+  - [x] B
+  - [x] C
+  - [x] D
+  - [x] E
 - [x] Optional Task
+
+# [Ex 3](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_3.md)
+
+- [x] Task 1
+  - [x] A
+  - [x] B
+  - [x] C
+  - [x] D
+  - [x] E
+- [x] Task 2
+  - [x] A
+  - [x] B
+  - [x] C
+  - [x] D
+  - [x] E
+- [?] Optional Task
 
