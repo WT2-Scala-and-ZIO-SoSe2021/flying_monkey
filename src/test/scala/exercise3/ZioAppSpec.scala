@@ -1,10 +1,10 @@
 package exercise3
 
 import exercise3.ZioApp._
-import zio.{ZIO, random}
+import zio.random
 import zio.test.DefaultRunnableSpec
 import zio.test.environment.TestRandom
-import zio.test.Assertion.{equalTo, fails, isFailure, isWithin}
+import zio.test.Assertion.{equalTo, fails, isWithin}
 import zio.test.assert
 
 object ZioAppSpec extends DefaultRunnableSpec {
@@ -37,16 +37,10 @@ object ZioAppSpec extends DefaultRunnableSpec {
       )(isWithin(-0.5, 0.5))
     },
 
-    /*testM("testing") {
-      for {
-        result <- ZIO.fail("fail").run
-      } yield assert(result)(fails(equalTo("fail")))
-    },
-
     testM("queue should return failure if wrong parameter is given") {
       for {
-        queue <- whiteNoise(-50)
-      } yield assert(queue)(isFailure))
-    }*/
+        queue <- whiteNoise(-50).run
+      } yield assert(queue)(fails(equalTo("wrong input")))
+    }
   )
 }

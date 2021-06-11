@@ -3,27 +3,25 @@ package exercise3
 import exercise2._
 import lib.KSA.ENERGY_DECAY_FACTOR
 import lib.StdAudio
-
 import zio.console._
 import zio.random._
 import zio.{UIO, URIO, ZIO}
 
+import scala.io.StdIn.{readDouble, readInt}
 import scala.util.{Failure, Success}
 
-object ZioApp extends App {
+object ZioApp extends zio.App {
+  def getInt() = ZIO.succeed(readInt())
+  def getDouble() = ZIO.succeed(readDouble())
+
   def run(args: List[String]) =
     myAppLogic.exitCode
 
-  /*val myAppLogic2 =
-    for {
-      _    <- putStrLn("Hello! What is your name?")
-      name <- getStrLn
-      _    <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
-    } yield ()*/
-
   val myAppLogic =
     for {
-      sound <- whiteNoise()
+      frequency <- getInt()
+      volume <- getDouble()
+      sound <- whiteNoise(frequency, volume)
       _ <- loop(sound)
     } yield ()
 
@@ -33,18 +31,19 @@ object ZioApp extends App {
    * Returns a queue containing a total of frequency elements of random values between .5 and -.5 multiplied by volume.
    * Frequency must be greater than zero and volume is between 0 and 1.
    */
-  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): URIO[Random, Queue[Double]] = {
+  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): ZIO[Random, String, Queue[Double]] = {
     if(frequency <= 0 || volume < 0 || volume > 1) {
       ZIO.fail("wrong input")
+    } else {
+      ZIO.foldLeft(0 to frequency)(new Queue[Double](StackEmpty(), StackEmpty())) {
+        (q, _) =>
+          for {
+            randomValue <- nextDoubleBetween(-0.5, 0.5)
+            queue <- ZIO.effectTotal(q.enqueue(randomValue * volume))
+          } yield queue
+      }
     }
 
-    ZIO.foldLeft(0 to frequency)(new Queue[Double](StackEmpty(), StackEmpty())) {
-      (q, _) =>
-        for {
-          randomValue <- nextDoubleBetween(-0.5, 0.5)
-          queue <- ZIO.effectTotal(q.enqueue(randomValue * volume))
-        } yield queue
-    }
   }
 
   /**
