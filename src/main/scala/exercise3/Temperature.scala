@@ -5,6 +5,9 @@ package object temperature {
         val US = "US"
         val SCI = "SCI"
         val Other = "Other"
+
+        // To test exception
+        val Test = "Test"
     }
     implicit val locale: Locale.Locale = Locale.Other
 
@@ -12,9 +15,9 @@ package object temperature {
         val freezingPoint = 0.0
         val absoluteZero = -273.15
 
-        def fahrenheit: Temperature = temp - 32 * 1.8
+        def fahrenheit: Temperature = 1.80 * temp + 32
 
-        def kelvin: Temperature = temp + absoluteZero
+        def kelvin: Temperature = temp - absoluteZero
 
         def celsius: Temperature = temp
 
@@ -25,7 +28,7 @@ package object temperature {
         case Locale.US => temperature.celsius + "°C"
         case Locale.SCI => temperature.fahrenheit + "°F"
         case Locale.Other => temperature.kelvin + "°K"
-        case _ => "Locale can only be one of US or SCI  or Other"
+        case _ => new Exception("Locale can only be one of US or SCI or Other")
     }
 
 }
