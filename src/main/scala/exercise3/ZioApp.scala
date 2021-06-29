@@ -5,7 +5,6 @@ import exercise2._
 import lib.KSA.ENERGY_DECAY_FACTOR
 import lib.StdAudio
 
-
 import zio.console._
 import zio.random._
 import zio.{UIO, URIO, ZIO}
@@ -35,7 +34,7 @@ object ZioApp extends App {
    * Returns a queue containing a total of frequency elements of random values between .5 and -.5 multiplied by volume.
    * Frequency must be greater than zero and volume is between 0 and 1.
    */
-  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): URIO[Random, Queue[Double]] = {
+  def whiteNoise(frequency: Int = 440, volume: Double = 1.0): URIO[Random, QueueLike[Double]] = {
     if(frequency <= 0 || volume < 0 || volume > 1) {
       ZIO.fail("wrong input")
     }

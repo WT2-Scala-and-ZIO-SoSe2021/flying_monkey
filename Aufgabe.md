@@ -46,11 +46,11 @@
   - [] C
   - [] D
   - [] E
-- [] Task 2
-  - [] A
-  - [] B
-  - [] C
-  - [] D
-  - [] E
-- [] Optional Task
+- [x] Task 2
+  - [x] A
+  - [x] B
+  - [x] C
+  - [x] D
+  - [x] E
+- [?] Optional Task
 
