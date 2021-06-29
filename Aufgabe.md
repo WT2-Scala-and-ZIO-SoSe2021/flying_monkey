@@ -52,5 +52,5 @@
   - [x] C
   - [x] D
   - [x] E
-- [?] Optional Task
+- [x] Optional Task
 

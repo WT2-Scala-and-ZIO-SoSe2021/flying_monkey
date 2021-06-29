@@ -1,8 +1,10 @@
 package exercise3
 
 import exercise2._
+
 import lib.KSA.ENERGY_DECAY_FACTOR
 import lib.StdAudio
+
 import zio.console._
 import zio.random._
 import zio.{UIO, URIO, ZIO}
@@ -43,7 +45,6 @@ object ZioApp extends zio.App {
           } yield queue
       }
     }
-
   }
 
   /**
@@ -52,17 +53,12 @@ object ZioApp extends zio.App {
    * Add newDouble to the queue.
    */
   def update(queue: QueueLike[Double]): Option[QueueLike[Double]] = {
-    val newQueue = queue.dequeue()
-    newQueue match {
-      case Success(newQueue) => Some(
-        newQueue.enqueue((queue.front().get + newQueue.front().get) / 2.0 * ENERGY_DECAY_FACTOR)
-      )
-      case Failure(_) => None
-    }
+    queue.dequeue().map(
+      newQueue => newQueue.enqueue((queue.front().get + newQueue.front().get) / 2.0 * ENERGY_DECAY_FACTOR)
+    ).toOption
   }
 
   /**
-   * Takes a queue and a function f:Double => Unit, which can be used to play audio.
    * Takes the queue, passes it to update, plays the front element of the queue and calls itself indefinitely.
    */
   def loop(queue: QueueLike[Double]): ZIO[Random, Throwable, Unit] = {

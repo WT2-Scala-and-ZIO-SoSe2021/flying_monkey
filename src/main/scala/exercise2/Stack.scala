@@ -1,7 +1,8 @@
 package exercise2
 
 import scala.annotation.tailrec
-import scala.util.Try
+
+import scala.util.{Failure, Try}
 
 // FIFO
 sealed trait StackLike[T] {
@@ -25,7 +26,7 @@ sealed trait StackLike[T] {
 case class StackEmpty[T]() extends StackLike[T] {
   override def push(elem: T): StackLike[T] = Stack(elem, this)
 
-  override def pop(): Try[StackLike[T]]= Try(StackEmpty())
+  override def pop(): Try[StackLike[T]]= Failure(new RuntimeException("Stack is empty!"))
 
   override def top(): Option[T] = None
 
@@ -33,7 +34,6 @@ case class StackEmpty[T]() extends StackLike[T] {
 
   override def reverse(): StackLike[T] = this
 }
-
 
 case class Stack[T](head: T, tail: StackLike[T]) extends StackLike[T] {
   override def push(elem: T): StackLike[T] = Stack(elem, this)

@@ -1,6 +1,7 @@
 package exercise3
 
 import exercise3.ZioApp._
+
 import zio.random
 import zio.test.DefaultRunnableSpec
 import zio.test.environment.TestRandom
