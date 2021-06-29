@@ -1,6 +1,7 @@
 package exercise2
 
 import scala.annotation.tailrec
+
 import scala.util.{Failure, Try}
 
 // FIFO

@@ -1,5 +1,7 @@
-import exercise3.ZioApp
+
 import lib.{KSA, StdAudio}
+
+import scala.util.Random
 
 object Main extends App {
   val sound1 = KSA.whiteNoise(262)

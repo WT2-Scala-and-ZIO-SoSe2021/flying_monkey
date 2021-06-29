@@ -1,8 +1,9 @@
 package lib
+
 import exercise2.{Queue, QueueLike, StackEmpty}
 
 import scala.annotation.tailrec
-import scala.util.{Failure, Random, Success}
+import scala.util.Random
 
 object KSA {
   val ENERGY_DECAY_FACTOR = 0.996
@@ -34,14 +35,10 @@ object KSA {
    * Remove the front double in the queue and average it with the next double multiplied by newDouble.
    * Add newDouble to the queue.
    */
-  def update(queue: QueueLike[Double]): Option[QueueLike[Double]] = {
-    val newQueue = queue.dequeue()
-    newQueue match {
-      case Success(newQueue) => Some(
-        newQueue.enqueue((queue.front().get + newQueue.front().get) / 2.0 * ENERGY_DECAY_FACTOR)
-      )
-      case Failure(_) => None
-    }
+  def update(queue: QueueLike[Double]): QueueLike[Double] = {
+    val newQueue = queue.dequeue().get
+    val newDouble = (queue.front().get + newQueue.front().get) / 2.0 * ENERGY_DECAY_FACTOR
+    newQueue.enqueue(newDouble)
   }
 
   @tailrec
@@ -50,7 +47,9 @@ object KSA {
    * Takes the queue, passes it to update, plays the front element of the queue and calls itself indefinitely.
    */
   def loop(queue: QueueLike[Double])(f: Double => Unit): Unit = {
-    val newQueue = update(queue).get
+    val newQueue = update(queue)
+    if(Math.abs(newQueue.front().get) < 0.0000000001)
+      return
     f(newQueue.front().get)
     loop(newQueue)(f)
   }

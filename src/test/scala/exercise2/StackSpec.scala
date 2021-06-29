@@ -17,7 +17,7 @@ class StackSpec extends AnyFlatSpec {
   }
 
   "pop" should "get one element from stack" in {
-    /*assert(emptyStack.pop() === Success(StackEmpty()))*/
+    assert(emptyStack.pop() === Success(StackEmpty()))
     assert(stack.pop().get === Stack(2, Stack(3, StackEmpty())))
   }
 

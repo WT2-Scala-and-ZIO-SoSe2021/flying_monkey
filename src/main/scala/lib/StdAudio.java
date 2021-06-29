@@ -34,9 +34,6 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import javax.sound.sampled.LineListener;
-import javax.sound.sampled.LineEvent;
-
 /**
  *  <i>Standard audio</i>. This class provides a basic capability for
  *  creating, reading, and saving audio. 
