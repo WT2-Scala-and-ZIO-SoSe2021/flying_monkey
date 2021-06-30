@@ -54,3 +54,16 @@
   - [x] E
 - [x] Optional Task
 
+# [Ex 4](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_4.md)
+
+- [x] Task 1
+- [x] Task 2
+- [] Task 3
+  - [x] A
+  - [x] B
+  - [] C
+  - [] D
+  - [] E
+  - [] F
+  - [] G
+- [] Optional Task
