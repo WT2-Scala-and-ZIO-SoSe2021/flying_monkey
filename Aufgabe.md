@@ -56,7 +56,7 @@
 
 # [Ex 4](https://github.com/WT2-Scala-and-ZIO-SoSe2021/homework/blob/main/Exercise_4.md)
 
-- [] Task 1
+- [x] Task 1
 - [] Task 2
 - [] Task 3
   - [] A
