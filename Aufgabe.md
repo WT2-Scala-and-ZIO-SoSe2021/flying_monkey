@@ -59,8 +59,8 @@
 - [x] Task 1
 - [x] Task 2
 - [] Task 3
-  - [] A
-  - [] B
+  - [x] A
+  - [x] B
   - [] C
   - [] D
   - [] E
