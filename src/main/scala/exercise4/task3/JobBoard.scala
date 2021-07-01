@@ -1,6 +1,6 @@
 package exercise4.task3
 
-import zio.UIO
+import zio._
 
 trait JobBoard {
   /**
@@ -14,6 +14,17 @@ trait JobBoard {
   def take(): UIO[PendingJob]
 }
 
-object JobBoard {
+case class JobBoardLive(queue: Queue[PendingJob]) extends JobBoard {
 
+  override def submit(job: PendingJob): UIO[Unit] = queue.offer(job).unit
+  override def take(): UIO[PendingJob] = queue.take
+}
+
+object JobBoard {
+  def submit(job: PendingJob): URIO[Has[JobBoard], Unit] = ZIO.serviceWith[JobBoard](_.submit(job))
+  def take(): URIO[Has[JobBoard], PendingJob] = ZIO.serviceWith[JobBoard](_.take())
+}
+
+object JobBoardLive {
+  val layer: ULayer[Has[JobBoard]] = ZLayer.fromEffect(Queue.unbounded[PendingJob].map(queue => JobBoardLive(queue)))
 }
