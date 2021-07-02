@@ -1,9 +1,15 @@
 package exercise4
 
-import zio.ZIO
+import zio.clock.Clock
+import zio.console.Console
+import zio.{Has, ZIO}
 
 package object task3 {
-  type MyEnv
+  type MyEnv = Has[CompletedJobsHub]
+    with Has[JobBoard]
+    with Has[News]
+    with Clock
+    with Console
 
   trait Robot {
     val name: String

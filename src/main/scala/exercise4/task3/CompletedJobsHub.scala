@@ -6,6 +6,7 @@ trait CompletedJobsHub {
 
   def publish(job: CompletedJob): UIO[Unit]
 }
+
 case class CompletedJobsHubLive(hub: Hub[CompletedJob])
   extends CompletedJobsHub {
 

@@ -61,9 +61,9 @@
 - [] Task 3
   - [x] A
   - [x] B
-  - [] C
-  - [] D
-  - [] E
+  - [x] C
+  - [x] D
+  - [x] E
   - [] F
   - [] G
 - [] Optional Task
