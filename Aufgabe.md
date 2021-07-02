@@ -58,12 +58,12 @@
 
 - [x] Task 1
 - [x] Task 2
-- [] Task 3
+- [x] Task 3
   - [x] A
   - [x] B
   - [x] C
   - [x] D
   - [x] E
-  - [] F
-  - [] G
+  - [x] F
+  - [x] G
 - [] Optional Task
